@@ -28,7 +28,7 @@ void write()
     while (true)
     {
         pthread_rwlock_wrlock(&rwlock);
-        std::this_thread::sleep_for(std::chrono::microseconds(800));//这边加延时是为了读锁那边不冲突
+        //std::this_thread::sleep_for(std::chrono::microseconds(1100)); //这边加延时是为了读锁那边不冲突
         myarr[i] = rand() % 100 + 1;
         cout << "write:myarr[" << i << "]=" << myarr[i] << endl;
         pthread_rwlock_unlock(&rwlock);
@@ -43,14 +43,13 @@ void read1()
     while (true)
     {
         pthread_rwlock_rdlock(&rwlock);
-        std::this_thread::sleep_for(std::chrono::microseconds(800));
-        cout
-            << "-----read1:myarr[" << i << "]=" << myarr[i] << endl;
+        std::this_thread::sleep_for(std::chrono::microseconds(500));
+        cout<< "-----read1:myarr[" << i << "]=" << myarr[i] << endl;
 
         pthread_rwlock_unlock(&rwlock);
 
         i = (i + 1) % 5;
-        std::this_thread::sleep_for(std::chrono::milliseconds(700));
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
     }
 }
 
@@ -61,14 +60,13 @@ void read2()
     while (true)
     {
         pthread_rwlock_rdlock(&rwlock);
-        std::this_thread::sleep_for(std::chrono::microseconds(800));
-        cout
-            << "-----read2:myarr[" << i << "]=" << myarr[i] << endl;
+        std::this_thread::sleep_for(std::chrono::microseconds(500));
+        cout<< "-----read2:myarr[" << i << "]=" << myarr[i] << endl;
 
         pthread_rwlock_unlock(&rwlock);
 
         i = (i + 1) % 5;
-        std::this_thread::sleep_for(std::chrono::milliseconds(800));
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
     }
 }
 
