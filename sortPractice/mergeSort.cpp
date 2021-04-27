@@ -1,7 +1,7 @@
 /*
  * @Author: wenjx 
  * @Date: 2021-04-23 18:26:52
- * @LastEditTime: 2021-04-23 18:40:51
+ * @LastEditTime: 2021-04-23 19:35:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /wenjx/c-/sortPractice/mergeSort.cpp
@@ -39,6 +39,33 @@ void mergeArray(vector<int> &nums,int left,int mid,int right)
         }
     }
 }
+
+// void mergeArray(vector<int> &nums,int left,int mid,int right) 
+// {
+//     //[left,mid] [mid+1,right]
+
+//     int firstidx=left,secondidx=mid+1;
+//     vector<int> temp_num(right-left+1);
+//     int idx=0;
+//     while (firstidx<=mid && secondidx<=right) {
+//         if (nums[firstidx]<=nums[secondidx] ) {
+//             temp_num[idx++]=nums[firstidx++];
+//         }
+//         else 
+//             temp_num[idx++]=nums[secondidx++]; 
+//     }
+
+//     while (firstidx<=mid) 
+//         temp_num[idx++]=nums[firstidx++];
+//     while (secondidx<=right) 
+//         temp_num[idx++]=nums[secondidx++];
+    
+//     int idx_new=left;
+//     for(int i=0;i<right-left+1;i++) {
+//         nums[idx_new++]=temp_num[i];
+//     }
+// }
+
 
 /** 对数组进行归并排序
  * @description: 
